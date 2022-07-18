@@ -8,3 +8,28 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angular-app';
 }
+
+if (import.meta.vitest) {
+	const { it, expect, describe, beforeEach } = import.meta.vitest;
+	const { TestBed, waitForAsync } = await import('@angular/core/testing');
+	const { RouterTestingModule } = await import('@angular/router/testing');
+	const { ViteWelcomeComponent } = await import('./vite-welcome.component');
+
+
+	describe('AppComponent', () => {
+		beforeEach(async () => {
+			TestBed.configureTestingModule({
+				imports: [RouterTestingModule],
+				declarations: [AppComponent, ViteWelcomeComponent],
+			}).compileComponents();
+		});
+
+		it('should create the app', () => {
+			debugger;
+			const fixture = TestBed.createComponent(AppComponent);
+			debugger;
+			const app = fixture.componentInstance;
+			expect(app).toBeTruthy();
+		});
+	});
+}
