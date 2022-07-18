@@ -4,10 +4,17 @@ import { ViteAngularPlugin } from '@nxext/angular-vite';
 export default defineConfig(({ command, mode }) => {
 	return {
 		plugins: [
-			ViteAngularPlugin(),
+			ViteAngularPlugin({
+				target: 'es2020',
+			}),
 		],
+		test: {
+			globals: true,
+			includeSource: ['src/**/*.{js,ts}'],
+			setupFiles: './test.ts',
+		},
 		resolve: {
-			preserveSymlinks: true,
+			mainFields: ['fesm2020', 'fesm2015', 'module'],
 		},
 		define: {
 			'import.meta.vitest': mode !== 'production',
