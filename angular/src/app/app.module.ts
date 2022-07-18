@@ -1,18 +1,18 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ViteWelcomeComponent } from './vite-welcome.component';
+
 @NgModule({
-	declarations: [AppComponent, ViteWelcomeComponent],
-	imports: [
-		BrowserModule,
-		RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
-		CommonModule,
-	],
-	providers: [],
-	bootstrap: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
