@@ -107,3 +107,6 @@ npx create-react-app react-app
 ```
 npx create-react-app react-app --template typescript
 ```
+```
+npx create-t3-app@latest
+```
