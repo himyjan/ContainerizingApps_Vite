@@ -11,7 +11,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     working_dir: /usr/src/app
-    command: sh -c "npm rebuild esbuild && yarn dev"
+    command: sh -c "npm app.js"
     env_file:
       - "./node/.env"
     ports:
