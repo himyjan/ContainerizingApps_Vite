@@ -45,7 +45,7 @@ COPY . ./
 RUN npm install
 RUN npm rebuild esbuild
 EXPOSE 3000
-RUN npm run start
+# RUN npm run start
 
 # Stage 2 - Deploy with NGNIX
 # FROM nginx:latest

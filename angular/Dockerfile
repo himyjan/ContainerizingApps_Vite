@@ -28,7 +28,7 @@ COPY . ./
 RUN npm install -g pnpm
 RUN pnpm install
 EXPOSE 3000
-RUN npm run dev
+# RUN npm run dev
 
 # Stage 2 - Deploy with NGNIX
 # FROM nginx:latest

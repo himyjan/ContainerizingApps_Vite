@@ -1,17 +1,11 @@
 version: "3.8"
 services:
   react:
-    container_name: react
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    image: node:16-slim
     volumes:
-      - ./:/usr/src/app
+      - ./:/app
       - ./shared:/shared
-      - /usr/src/app/node_modules
-    working_dir: /usr/src/app
+    working_dir: /app
     command: sh -c "npm rebuild esbuild && yarn dev"
-    env_file:
-      - "./.env"
     ports:
-      - 8083:3000
+      - "3000:3000"

@@ -11,6 +11,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     working_dir: /usr/src/app
+    command: sh -c "npm rebuild esbuild && yarn dev"
     env_file:
       - "./node/.env"
     ports:
@@ -26,6 +27,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     working_dir: /usr/src/app
+    command: sh -c "npm rebuild esbuild && yarn dev"
     env_file:
       - "./angular/.env"
     ports:
@@ -73,6 +75,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     working_dir: /usr/src/app
+    command: sh -c "npm rebuild esbuild && yarn dev"
     env_file:
       - "./vue/.env"
     ports:
@@ -88,6 +91,7 @@ services:
       - ./shared:/shared
       - /usr/src/app/node_modules
     working_dir: /usr/src/app
+    command: sh -c "npm rebuild esbuild && yarn dev"
     env_file:
       - "./vuetypescript/.env"
     ports:

@@ -21,10 +21,11 @@
 
 #docker build --no-cache . |  grep "Successfully built" | sed 's/Successfully built //g' | xargs -I{} docker run {}
 # Stage 1 - Build React App inside temporary Node container
-FROM node:alpine as react-build
+FROM node:node:16-slim as react-build
 
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY package.json /app
+COPY package.json /usr/src/app
 COPY . ./
 RUN npm install
 RUN npm rebuild esbuild
