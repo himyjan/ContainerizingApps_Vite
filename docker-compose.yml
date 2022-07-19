@@ -2,31 +2,45 @@ version: "3.4"
 
 services:
   node:
+    container_name: node
     build:
-      context: "node/"
-    image: node-app
+      context: ./node/
+      dockerfile: Dockerfile
+    volumes:
+      - ./node:/usr/src/app
+      - ./shared:/shared
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
     env_file:
       - "./node/.env"
     ports:
       - 8090:3000
 
   angular:
+    container_name: angular
     build:
-      context: "angular/"
-    image: angular-app
+      context: ./angular/
+      dockerfile: Dockerfile
+    volumes:
+      - ./angular:/usr/src/app
+      - ./shared:/shared
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
     env_file:
       - "./angular/.env"
     ports:
       - 8082:3000
 
   react:
+    container_name: react
     build:
-      context: "react/"
-    image: node:16-slim
+      context: ./react/
+      dockerfile: Dockerfile
     volumes:
-      - ./:/app
+      - ./react:/usr/src/app
       - ./shared:/shared
-    working_dir: /app
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
     command: sh -c "npm rebuild esbuild && yarn dev"
     env_file:
       - "./react/.env"
@@ -34,13 +48,15 @@ services:
       - 8083:3000
 
   reacttypescript:
+    container_name: reacttypescript
     build:
-      context: "reacttypescript/"
-    image: node:16-slim
+      context: ./reacttypescript/
+      dockerfile: Dockerfile
     volumes:
-      - ./:/app
+      - ./reacttypescript:/usr/src/app
       - ./shared:/shared
-    working_dir: /app
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
     command: sh -c "npm rebuild esbuild && yarn dev"
     env_file:
       - "./reacttypescript/.env"
@@ -48,18 +64,30 @@ services:
       - 8084:3000
 
   vue:
+    container_name: vue
     build:
-      context: "vue/"
-    image: vue-app
+      context: ./vue/
+      dockerfile: Dockerfile
+    volumes:
+      - ./vue:/usr/src/app
+      - ./shared:/shared
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
     env_file:
       - "./vue/.env"
     ports:
       - 8085:3000
 
   vuetypescript:
+    container_name: vuetypescript
     build:
-      context: "vuetypescript/"
-    image: vue-app
+      context: ./vuetypescript/
+      dockerfile: Dockerfile
+    volumes:
+      - ./vuetypescript:/usr/src/app
+      - ./shared:/shared
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
     env_file:
       - "./vuetypescript/.env"
     ports:
