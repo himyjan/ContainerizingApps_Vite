@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  react:
+    image: node:16-slim
+    volumes:
+      - ./:/app
+      - ./shared:/shared
+    working_dir: /app
+    command: sh -c "npm rebuild esbuild && yarn dev"
+    ports:
+      - "3000:3000"

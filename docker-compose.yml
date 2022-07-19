@@ -22,7 +22,12 @@ services:
   react:
     build:
       context: "react/"
-    image: react-app
+    image: node:16-slim
+    volumes:
+      - ./:/app
+      - ./shared:/shared
+    working_dir: /app
+    command: sh -c "npm rebuild esbuild && yarn dev"
     env_file:
       - "./react/.env"
     ports:
@@ -31,7 +36,12 @@ services:
   reacttypescript:
     build:
       context: "reacttypescript/"
-    image: reacttypescript-app
+    image: node:16-slim
+    volumes:
+      - ./:/app
+      - ./shared:/shared
+    working_dir: /app
+    command: sh -c "npm rebuild esbuild && yarn dev"
     env_file:
       - "./reacttypescript/.env"
     ports:
