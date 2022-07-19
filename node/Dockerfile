@@ -4,7 +4,7 @@ ARG GLIBC_VERSION='2.34-r0'
 
 
 ### GET ###
-FROM alpine:latest as get
+FROM --platform=linux/arm64 alpine:latest as get
 
 # prepare environment
 WORKDIR /tmp
@@ -22,7 +22,7 @@ RUN curl -LO https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
 
 
 ### IMAGE ###
-FROM alpine:latest
+FROM --platform=linux/arm64 alpine:latest
 
 # prepare bun
 COPY --from=get /tmp/bun-linux-x64/bun /usr/local/bin

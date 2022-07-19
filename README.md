@@ -55,44 +55,44 @@ docker-compose up -d --build vuetypescript
 bun create
 ```
 ```
-bun create vite@latest react-app --template react
+npx create vite@latest react-app --template react
 ```
 ```
-bun create vite@latest react-app --template react-ts
+npx create vite@latest react-app --template react-ts
 ```
 ```
-bun create vite@latest vue-app --template vue
+npx create vite@latest vue-app --template vue
 ```
 ```
-bun create vite@latest vue-app --template vue-ts
+npx create vite@latest vue-app --template vue-ts
 ```
 ```
 npx create-nx-workspace --preset=empty
 bun install @nxext/angular --save
 ```
 ```
-bun create vite@latest preact-app --template preact
+npx create vite@latest preact-app --template preact
 ```
 ```
-bun create vite@latest preact-app --template preact-ts
+npx create vite@latest preact-app --template preact-ts
 ```
 ```
-bun create vite@latest lit-app --template lit
+npx create vite@latest lit-app --template lit
 ```
 ```
-bun create vite@latest lit-app --template lit-ts
+npx create vite@latest lit-app --template lit-ts
 ```
 ```
-bun create vite@latest vanilla-app --template vanilla
+npx create vite@latest vanilla-app --template vanilla
 ```
 ```
-bun create vite@latest vanilla-app --template vanilla-ts
+npx create vite@latest vanilla-app --template vanilla-ts
 ```
 ```
-bun create vite@latest svelte-app --template svelte
+npx create vite@latest svelte-app --template svelte
 ```
 ```
-bun create vite@latest svelte-app --template svelte-ts
+npx create vite@latest svelte-app --template svelte-ts
 ```
 ---
 ```

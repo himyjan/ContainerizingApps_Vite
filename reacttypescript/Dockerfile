@@ -1,5 +1,5 @@
 # # Stage 1 - Build React App inside temporary Node container
-# FROM ubuntu
+# FROM --platform=linux/amd64 ubuntu:latest
 
 # RUN apt-get update
 # RUN apt-get upgrade -y
