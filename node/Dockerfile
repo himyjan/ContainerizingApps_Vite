@@ -39,13 +39,15 @@
 # Stage 1 - Build React App inside temporary Node container
 FROM node:alpine as react-build
 
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY package.json /app
+RUN cd /usr/src/app
+COPY package.json ./
 COPY . ./
 RUN npm install
 RUN npm rebuild esbuild
 EXPOSE 3000
-# RUN npm run start
+# RUN npm run dev
 
 # Stage 2 - Deploy with NGNIX
 # FROM nginx:latest
