@@ -1,41 +1,30 @@
-# ### GLOBALS ###
-# ARG BUN_VERSION='0.1.2'
-# ARG GLIBC_VERSION='2.34-r0'
+# # Stage 1 - Build React App inside temporary Node container
+# FROM ubuntu:latest
+# WORKDIR /opt/app
 
+# RUN apt-get update
+# RUN apt-get upgrade -y
+# RUN apt-get install -y curl unzip
+# RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash
+# RUN apt-get install -y nodejs
 
-# ### GET ###
-# FROM --platform=linux/arm64 alpine:latest as get
+# ENV BUNPATH /root/.bun
+# ENV PATH $BUNPATH/bin:$PATH
+# ENV BUN_VERSION = $(eval bun -v)
+# RUN curl -fsSL https://bun.sh/install | bash
+# RUN ln -s $BUNPATH/bin/bun /usr/local/bin/bun
 
-# # prepare environment
-# WORKDIR /tmp
-# RUN apk --update add curl unzip
+# RUN mkdir /usr/src/app
+# WORKDIR /usr/src/app
+# RUN cd /usr/src/app
 
-# # get bun
-# ARG BUN_VERSION
-# RUN curl -LO https://github.com/oven-sh/bun/releases/download/bun-v${BUN_VERSION}/bun-linux-x64.zip && \
-#     unzip bun-linux-x64.zip
+# COPY package.json /usr/src/app
+# COPY . ./
+# RUN bun install
+# EXPOSE 3000
+## RUN npm run dev
 
-# # get glibc
-# ARG GLIBC_VERSION
-# RUN curl -LO https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub && \
-#     curl -LO https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk
-
-
-# ### IMAGE ###
-# FROM --platform=linux/arm64 alpine:latest
-
-# # prepare bun
-# COPY --from=get /tmp/bun-linux-x64/bun /usr/local/bin
-
-# # prepare glibc
-# ARG GLIBC_VERSION
-# COPY --from=get /tmp/sgerrand.rsa.pub /etc/apk/keys
-# COPY --from=get /tmp/glibc-${GLIBC_VERSION}.apk /tmp
-
-# # install and clean up
-# RUN apk --no-cache add /tmp/glibc-${GLIBC_VERSION}.apk && \
-#     rm /tmp/*
-
+#docker build --no-cache . |  grep "Successfully built" | sed 's/Successfully built //g' | xargs -I{} docker run {}
 # Stage 1 - Build React App inside temporary Node container
 FROM node:alpine as react-build
 

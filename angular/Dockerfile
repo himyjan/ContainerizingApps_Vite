@@ -1,26 +1,31 @@
-# Stage 1 - Build React App inside temporary Node container
-# FROM --platform=linux/amd64 ubuntu:latest
+# # Stage 1 - Build React App inside temporary Node container
+# FROM ubuntu:latest
+# WORKDIR /opt/app
 
 # RUN apt-get update
 # RUN apt-get upgrade -y
 # RUN apt-get install -y curl unzip
-
-# RUN curl https://bun.sh/install | bash
+# RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash
+# RUN apt-get install -y nodejs
 
 # ENV BUNPATH /root/.bun
 # ENV PATH $BUNPATH/bin:$PATH
-
 # ENV BUN_VERSION = $(eval bun -v)
+# RUN curl -fsSL https://bun.sh/install | bash
+# RUN ln -s $BUNPATH/bin/bun /usr/local/bin/bun
 
-# RUN mkdir /root/bun
-# WORKDIR /root/bun
+# RUN mkdir /usr/src/app
+# WORKDIR /usr/src/app
+# RUN cd /usr/src/app
 
+# COPY package.json /usr/src/app
 # COPY . ./
 # RUN bun install
-# RUN bun run ng build  --prod
+# EXPOSE 3000
+## RUN npm run dev
 
+#docker build --no-cache . |  grep "Successfully built" | sed 's/Successfully built //g' | xargs -I{} docker run {}
 # Stage 1 - Build React App inside temporary Node container
-# FROM node:carbon-alpine as react-build
 FROM node:alpine as builder
 WORKDIR /usr/src/app
 COPY package.json /app
