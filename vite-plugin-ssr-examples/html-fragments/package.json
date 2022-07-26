@@ -4,7 +4,7 @@
   },
   "dependencies": {
     "typescript": "^4.7.4",
-    "vite": "^3.0.2",
-    "vite-plugin-ssr": "0.4.10"
+    "vite": "^3.0.3",
+    "vite-plugin-ssr": "0.4.12"
   }
 }

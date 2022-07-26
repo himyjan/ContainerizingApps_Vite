@@ -5,10 +5,10 @@
     "preview": "vite build && vite preview"
   },
   "dependencies": {
-    "solid-js": "^1.4.7",
+    "solid-js": "^1.4.8",
     "typescript": "^4.7.4",
-    "vite": "^3.0.2",
+    "vite": "^3.0.3",
     "vite-plugin-solid": "^2.3.0",
-    "vite-plugin-ssr": "0.4.10"
+    "vite-plugin-ssr": "0.4.12"
   }
 }
