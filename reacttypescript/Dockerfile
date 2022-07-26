@@ -26,7 +26,7 @@
 
 #docker build --no-cache . |  grep "Successfully built" | sed 's/Successfully built //g' | xargs -I{} docker run {}
 # Stage 1 - Build React App inside temporary Node container
-FROM node:node:16-slim as react-build
+FROM node:16-slim as react-build
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
