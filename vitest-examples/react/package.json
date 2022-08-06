@@ -1,0 +1,25 @@
+{
+  "name": "@vitest/example-react",
+  "private": true,
+  "scripts": {
+    "coverage": "vitest run --coverage",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.15",
+    "@types/react-test-renderer": "^18.0.0",
+    "@vitejs/plugin-react": "2.0.0",
+    "@vitest/ui": "latest",
+    "happy-dom": "^6.0.4",
+    "jsdom": "latest",
+    "react-test-renderer": "18.2.0",
+    "vitest": "latest"
+  },
+  "stackblitz": {
+    "startCommand": "npm run test:ui"
+  }
+}
