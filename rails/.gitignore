@@ -47,3 +47,9 @@ yarn-debug.log*
 node_modules
 *.local
 .DS_Store
+
+# lock files
+*-lock.json
+*-lock.yaml
+*.lock
+*.lockb
