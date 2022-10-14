@@ -25,16 +25,39 @@
 ## RUN npm run dev
 
 #docker build --no-cache . |  grep "Successfully built" | sed 's/Successfully built //g' | xargs -I{} docker run {}
+
 # Stage 1 - Build React App inside temporary Node container
-FROM node:alpine as react-build
+### GET ###
+FROM alpine:latest as get
+
+# prepare environment
+WORKDIR /tmp
+RUN apk --no-cache add unzip
+
+# get bun
+ADD https://github.com/oven-sh/bun/releases/latest/download/bun-linux-aarch64.zip bun-linux-aarch64.zip
+RUN unzip bun-linux-aarch64.zip
+
+### IMAGE ###
+FROM debian:bookworm-slim as build
+
+# install bun
+COPY --from=get /tmp/bun-linux-aarch64/bun /usr/local/bin
+
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install -y nodejs
+
+# smoke test
+RUN bun --version
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 RUN cd /usr/src/app
 COPY package.json ./
 COPY . ./
-RUN npm install
-RUN npm rebuild esbuild
+RUN bun install
+RUN bun rebuild esbuild
 EXPOSE 3000
 # RUN npm run dev
 
