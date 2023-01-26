@@ -14,7 +14,7 @@
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "latest",
     "@vitest/ui": "latest",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
     "enzyme": "^3.11.0",
     "vite": "latest",
     "vitest": "latest"
