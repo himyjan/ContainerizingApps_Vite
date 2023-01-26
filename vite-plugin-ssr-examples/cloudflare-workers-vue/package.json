@@ -5,7 +5,7 @@
     "deploy": "vite build && wrangler publish"
   },
   "dependencies": {
-    "@cloudflare/kv-asset-handler": "^0.2.0",
+    "@cloudflare/kv-asset-handler": "^0.3.0",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/compiler-sfc": "^3.2.37",
     "@vue/server-renderer": "^3.2.37",
