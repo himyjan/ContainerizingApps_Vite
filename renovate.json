@@ -4,9 +4,8 @@
     "config:base"
   ],
   "packageRules": [
-  {
-    "matchUpdateTypes": ["patch"],
-    "matchCurrentVersion": ">= 0.0.0",
-    "automerge": true
-  }
+    {
+      "automerge": true
+    }
+  ]
 }
