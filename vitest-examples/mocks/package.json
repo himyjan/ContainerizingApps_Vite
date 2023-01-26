@@ -20,7 +20,7 @@
     "@vitest/ui": "latest",
     "vite": "^3.0.4",
     "vitest": "latest",
-    "zustand": "4.0.0"
+    "zustand": "4.3.2"
   },
   "stackblitz": {
     "startCommand": "npm run test:ui"
