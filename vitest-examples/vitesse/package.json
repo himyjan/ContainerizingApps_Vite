@@ -9,7 +9,7 @@
     "vue": "^3.2.37"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.0.1",
+    "@vitejs/plugin-vue": "^4.0.0",
     "@vue/test-utils": "^2.0.2",
     "jsdom": "^20.0.0",
     "unplugin-auto-import": "^0.12.0",
