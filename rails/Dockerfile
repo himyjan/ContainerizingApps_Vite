@@ -1,4 +1,4 @@
-FROM ruby:3.0 AS builder
+FROM ruby:3.2 AS builder
 
 # Install nodejs in the ruby image
 RUN curl -sL https://deb.nodesource.com/setup_15.x | bash - && apt-get install -y nodejs
