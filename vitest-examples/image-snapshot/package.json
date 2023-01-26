@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@vitest/ui": "latest",
-    "jest-image-snapshot": "^5.1.0",
+    "jest-image-snapshot": "^6.0.0",
     "vite": "^3.0.4",
     "vitest": "latest"
   },
