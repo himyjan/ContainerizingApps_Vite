@@ -1,30 +1,32 @@
-import { defineConfig } from 'vite';
-import { ViteAngularPlugin } from '@nxext/angular-vite';
+/// <reference types="vavite/vite-config" />
 
-export default defineConfig(({ command, mode }) => {
-  return {
-    server: {
-      host: '0.0.0.0',
-      port: 3000,
-      fs: {
-        strict: false,
+import { defineConfig } from 'vite';
+import { angular } from '@nitedani/vite-plugin-angular/plugin';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import vavite from 'vavite';
+import ssr from 'vite-plugin-ssr/plugin';
+
+export default defineConfig({
+  buildSteps: [
+    {
+      name: 'client',
+    },
+    {
+      name: 'server',
+      config: {
+        build: {
+          ssr: true,
+        },
       },
     },
-    plugins: [
-      ViteAngularPlugin({
-        target: 'es2020',
-      }),
-    ],
-    test: {
-      globals: true,
-      includeSource: ['src/**/*.{js,ts}'],
-      setupFiles: './test.ts',
-    },
-    resolve: {
-      mainFields: ['fesm2020', 'fesm2015', 'module'],
-    },
-    define: {
-      'import.meta.vitest': mode !== 'production',
-    },
-  };
+  ],
+  plugins: [
+    vavite({
+      serverEntry: '/server/main.ts',
+      serveClientAssetsInDev: true,
+    }),
+    angular(),
+    ssr({ disableAutoFullBuild: true }),
+    tsconfigPaths(),
+  ],
 });

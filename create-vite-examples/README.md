@@ -1,3 +1,5 @@
+[https://github.com/vitejs/vite/tree/main/packages/create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite)
+
 # create-vite
 
 ## Scaffolding Your First Vite Project
@@ -49,6 +51,8 @@ Currently supported template presets include:
 - `vue-ts`
 - `react`
 - `react-ts`
+- `react-swc`
+- `react-swc-ts`
 - `preact`
 - `preact-ts`
 - `lit`
