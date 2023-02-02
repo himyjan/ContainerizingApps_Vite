@@ -1,11 +1,11 @@
-import "~/integrations/bugsnag";
-import "~/integrations/honeybadger";
-import React from "react";
-import ReactDom from "react-dom/client";
+import '~/integrations/bugsnag'
+// import '~/integrations/honeybadger'
+import React from 'react'
+import { createRoot } from 'react-dom/client'
 
-import Hero from "~/components/Hero.jsx";
+import Hero from '~/components/Hero.jsx'
 
-console.log("Vite ⚡️ Rails");
+console.log('Vite ⚡️ Rails')
 
-const root = ReactDOM.createRoot(document.getElementById("hero"));
-root.render(<React.StrictMode>{React.createElement(Hero)}</React.StrictMode>);
+const root = createRoot(document.getElementById('hero'))
+root.render(React.createElement(Hero))
