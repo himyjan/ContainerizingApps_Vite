@@ -1,0 +1,37 @@
+{
+  "name": "vite-ng-vps-express-app",
+  "version": "15.0.4",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vavite",
+    "start": "node dist/server/index.js"
+  },
+  "dependencies": {
+    "@angular/animations": "^15.2.9",
+    "@angular/common": "^15.2.9",
+    "@angular/compiler": "^15.2.9",
+    "@angular/core": "^15.2.9",
+    "@angular/platform-browser": "^15.2.9",
+    "@angular/platform-browser-dynamic": "^15.2.9",
+    "@angular/platform-server": "^15.2.9",
+    "@nitedani/vite-plugin-ssr-adapter-express": "^0.0.5",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1",
+    "vite-plugin-ssr": "^0.4.130",
+    "zone.js": "^0.13.0"
+  },
+  "devDependencies": {
+    "@nitedani/vite-plugin-angular": "latest",
+    "@types/express": "^4.17.17",
+    "sass": "^1.62.1",
+    "typescript": "5.0.4",
+    "vavite": "^1.8.1",
+    "vite": "^4.3.9",
+    "vite-tsconfig-paths": "^4.2.0"
+  },
+  "prettier": {
+    "singleQuote": true
+  }
+}
