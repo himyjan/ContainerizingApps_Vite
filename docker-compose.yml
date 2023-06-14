@@ -1,0 +1,98 @@
+version: "3.4"
+
+services:
+  node:
+    container_name: node
+    build:
+      context: ./node/
+      dockerfile: Dockerfile
+    volumes:
+      - ./node:/usr/src/app
+      - ./shared:/shared
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    command: sh -c "npm run dev"
+    env_file:
+      - "./node/.env"
+    ports:
+      - 8090:3000
+
+  angular:
+    container_name: angular
+    build:
+      context: ./angular/
+      dockerfile: Dockerfile
+    volumes:
+      - ./angular:/usr/src/app
+      - ./shared:/shared
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    command: sh -c "npm rebuild esbuild && yarn dev"
+    env_file:
+      - "./angular/.env"
+    ports:
+      - 8082:3000
+
+  react:
+    container_name: react
+    build:
+      context: ./react/
+      dockerfile: Dockerfile
+    volumes:
+      - ./react:/usr/src/app
+      - ./shared:/shared
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    command: sh -c "npm rebuild esbuild && yarn dev"
+    env_file:
+      - "./react/.env"
+    ports:
+      - 8083:3000
+
+  reacttypescript:
+    container_name: reacttypescript
+    build:
+      context: ./reacttypescript/
+      dockerfile: Dockerfile
+    volumes:
+      - ./reacttypescript:/usr/src/app
+      - ./shared:/shared
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    command: sh -c "npm rebuild esbuild && yarn dev"
+    env_file:
+      - "./reacttypescript/.env"
+    ports:
+      - 8084:3000
+
+  vue:
+    container_name: vue
+    build:
+      context: ./vue/
+      dockerfile: Dockerfile
+    volumes:
+      - ./vue:/usr/src/app
+      - ./shared:/shared
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    command: sh -c "npm rebuild esbuild && yarn dev"
+    env_file:
+      - "./vue/.env"
+    ports:
+      - 8085:3000
+
+  vuetypescript:
+    container_name: vuetypescript
+    build:
+      context: ./vuetypescript/
+      dockerfile: Dockerfile
+    volumes:
+      - ./vuetypescript:/usr/src/app
+      - ./shared:/shared
+      - /usr/src/app/node_modules
+    working_dir: /usr/src/app
+    command: sh -c "npm rebuild esbuild && yarn dev"
+    env_file:
+      - "./vuetypescript/.env"
+    ports:
+      - 8086:3000
