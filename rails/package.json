@@ -11,8 +11,8 @@
     "pnpm": "9"
   },
   "dependencies": {
-    "@bugsnag/js": "^7.21.0",
-    "@bugsnag/plugin-react": "^7.19.0",
+    "@bugsnag/js": "^8.0.0",
+    "@bugsnag/plugin-react": "^8.0.0",
     "@hotwired/turbo": "^8.0.0",
     "@rails/actioncable": "^7.0.8",
     "@rails/activestorage": "^7.0.8",
