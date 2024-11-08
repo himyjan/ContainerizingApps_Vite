@@ -14,8 +14,8 @@
     "@bugsnag/js": "^8.0.0",
     "@bugsnag/plugin-react": "^8.0.0",
     "@hotwired/turbo": "^8.0.0",
-    "@rails/actioncable": "^7.0.8",
-    "@rails/activestorage": "^7.0.8",
+    "@rails/actioncable": "^8.0.0",
+    "@rails/activestorage": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
