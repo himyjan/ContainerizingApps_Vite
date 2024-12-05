@@ -16,8 +16,8 @@
     "@hotwired/turbo": "^8.0.0",
     "@rails/actioncable": "^8.0.0",
     "@rails/activestorage": "^8.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "version": "0.1.0",
   "devDependencies": {
