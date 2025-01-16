@@ -19,7 +19,7 @@
     "typescript": "^5.2.2",
     "vite": "^6.0.0",
     "vite-tsconfig-paths": "^5.0.0",
-    "vitest": "^2.0.0",
+    "vitest": "^3.0.0",
     "vue-tsc": "^2.0.0"
   }
 }
